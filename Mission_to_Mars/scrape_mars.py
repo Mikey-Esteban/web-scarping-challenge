@@ -142,7 +142,6 @@ def scrape():
     browser.quit()
 
     # Return results
-    print(mars_data)
     return mars_data
 
 # Python program to executable
