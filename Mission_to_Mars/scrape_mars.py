@@ -138,6 +138,10 @@ def scrape():
     # add hemisphere images list to mars data
     mars_data['hemi_imgs'] = img_list
 
+    # Close the browser after scraping
+    browser.quit()
+
+    # Return results
     return mars_data
 
 # Python program to executable
