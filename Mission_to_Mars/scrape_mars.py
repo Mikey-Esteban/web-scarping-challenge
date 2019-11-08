@@ -39,7 +39,6 @@ def scrape():
 ###############
 ##########  FEATURED IMAGE
 ###############
-
     # Visit JPL Mars Space Image site
     url2 = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     main_site = 'https://www.jpl.nasa.gov'
@@ -48,19 +47,46 @@ def scrape():
     # Scrape the browser into a BeautifulSoup object and use BS to find the image of mars
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
-    # find all imgs
-    images = soup.find_all('img', class_='thumb')
 
-    # loop to find alt='Insight', then pull out the corresponding src
-    for image in images:
-        if image['alt'] == 'InSight':
-            url = image['src']
+    # find the img button
+    button = soup.find('a', class_='button fancybox').text
+    button_link = soup.find('a', class_='button fancybox')['data-link']
+
+    # Visit the next button
+    browser.visit(main_site + button_link)
+    html2 = browser.html
+    soup2 = BeautifulSoup(html2, 'html.parser')
+    # Collect Image source
+    featured_img_url = soup2.find('img', class_='main_image')['src']
 
     # Add src to rest of http
-    featured_image_url = main_site + url
+    featured_image = main_site + featured_img_url
+    featured_image
 
     # Add img url to mars dictionary
-    mars_data['featured_image_url'] = featured_image_url
+    mars_data['featured_image'] = featured_image
+
+    # # Visit JPL Mars Space Image site
+    # url2 = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
+    # main_site = 'https://www.jpl.nasa.gov'
+    # browser.visit(url2)
+    #
+    # # Scrape the browser into a BeautifulSoup object and use BS to find the image of mars
+    # html = browser.html
+    # soup = BeautifulSoup(html, 'html.parser')
+    # # find all imgs
+    # images = soup.find_all('img', class_='thumb')
+    #
+    # # loop to find alt='Insight', then pull out the corresponding src
+    # for image in images:
+    #     if image['alt'] == 'InSight':
+    #         url = image['src']
+    #
+    # # Add src to rest of http
+    # featured_image_url = main_site + url
+    #
+    # # Add img url to mars dictionary
+    # mars_data['featured_image_url'] = featured_image_url
 
 ###############
 ##########  TWITTER
