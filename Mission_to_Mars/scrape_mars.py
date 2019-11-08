@@ -93,9 +93,9 @@ def scrape():
     mars_df = result[0]
 
     # Rename Columns
-    mars_df = mars_df.rename(columns={0:'Values'})
-    mars_df = mars_df.rename(columns={1:'Mars'})
-    mars_df = mars_df.set_index('Values')
+    mars_df = mars_df.rename(columns={0:'Description'})
+    mars_df = mars_df.rename(columns={1:'Value'})
+    mars_df = mars_df.set_index('Description')
 
     # Convert to an HTML Table
     mars_html_table = mars_df.to_html().replace('\n', '')
@@ -142,6 +142,7 @@ def scrape():
     browser.quit()
 
     # Return results
+    print(mars_data)
     return mars_data
 
 # Python program to executable

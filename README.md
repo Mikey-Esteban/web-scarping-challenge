@@ -1,2 +1,2 @@
-# web-scarping-challenge
+# web-scraping-challenge
 RU Data Sci HW

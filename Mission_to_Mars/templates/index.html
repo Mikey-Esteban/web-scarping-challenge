@@ -21,10 +21,26 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <h3>Latest Mars News<h3>
-        <h4>{{data.news_title}}</h4>
-        <h5>{{data.news_info}}</h5>
-
+        <h4>Latest Mars News<h4>
+        <h5>{{data.news_title}}</h5>
+        <p>{{data.news_info}}</p>
+      </div>
+    </div>
+    <hr class="stripline bg-info">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Featured Mars Image</h3>
+        <img class="InSight" src="{{data.featured_image_url}}" alt="Featured Mars Image">
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <h6>Current Weather on Mars</h6>
+          <p>{{data.tweet_info}}</p>
+        </div>
+        <div>
+          <h6>Mars Facts<h6>
+          {{data.html_table|safe}}
+        </div>
       </div>
     </div>
   </div>
