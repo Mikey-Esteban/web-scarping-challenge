@@ -16,6 +16,7 @@ def scrape():
     # Dictionary for scraped data
     mars_data = {}
 
+
 ###############
 ##########  NEWS
 ###############
@@ -35,6 +36,7 @@ def scrape():
     # Add news data to mars dictionary
     mars_data['news_title'] = news_title
     mars_data['news_info'] = news_p_text
+
 
 ###############
 ##########  FEATURED IMAGE
@@ -66,27 +68,6 @@ def scrape():
     # Add img url to mars dictionary
     mars_data['featured_image'] = featured_image
 
-    # # Visit JPL Mars Space Image site
-    # url2 = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
-    # main_site = 'https://www.jpl.nasa.gov'
-    # browser.visit(url2)
-    #
-    # # Scrape the browser into a BeautifulSoup object and use BS to find the image of mars
-    # html = browser.html
-    # soup = BeautifulSoup(html, 'html.parser')
-    # # find all imgs
-    # images = soup.find_all('img', class_='thumb')
-    #
-    # # loop to find alt='Insight', then pull out the corresponding src
-    # for image in images:
-    #     if image['alt'] == 'InSight':
-    #         url = image['src']
-    #
-    # # Add src to rest of http
-    # featured_image_url = main_site + url
-    #
-    # # Add img url to mars dictionary
-    # mars_data['featured_image_url'] = featured_image_url
 
 ###############
 ##########  TWITTER
@@ -106,6 +87,7 @@ def scrape():
 
     # Add tweet to mars dictionary
     mars_data['tweet_info'] = tweet
+
 
 ###############
 ##########  MARS FACTS
@@ -129,6 +111,7 @@ def scrape():
 
     # Add table to dictionary
     mars_data['html_table'] = mars_html_table
+
 
 ###############
 ##########  MARS HEMISPHERE IMAGES

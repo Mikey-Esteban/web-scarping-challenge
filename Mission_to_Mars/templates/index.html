@@ -37,10 +37,11 @@
 </head>
 
 <body>
+<div class="container web-page">
     <div class="container text-center">
-        <h1 class="jumbotron">Mission to Mars</h1>
+        <h1 class="jumbotron bg-dark text-light">Mission to Mars</h1>
         <p>
-            <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new Mars Data</a>
+            <a class="btn btn-primary btn-lg btn-warning text-light" href="/scrape" role="button">Scrape new Mars Data</a>
         </p>
     </div>
     <!-- <div> {{data}} </div> -->
@@ -70,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bottom-info">
+    <div class="container-fluid bottom-info bg-light">
         <div class="row justify-content-center">
               <h4>Mars Hemispheres<h4>
               <hr>
@@ -78,7 +79,7 @@
                   <div class="row">
                     {% for img in data.hemi_imgs %}
                       <div class="col-md-6 each-hemi">
-                          <img class="img-responsive hemi-img" src="{{img['img_url']}}" alt="{{img['title']}}" width=100%>
+                          <img class="img-responsive hemi-img" src="{{img['img_url']}}" alt="{{img['title']}}" width=95%>
                           {{img['title']}}
                       </div>
                     {% endfor %}
@@ -99,6 +100,7 @@
             </div>
         </div>
 		</footer>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
